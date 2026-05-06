@@ -1,0 +1,15 @@
+{
+  "name": "claude-muslim-finance-toolkit",
+  "owner": {
+    "name": "Mohamed Abo ElNaga",
+    "url": "https://github.com/aboelnaga"
+  },
+  "plugins": [
+    {
+      "name": "muslim-finance-toolkit",
+      "source": "./",
+      "description": "Claude Code skills for Muslim hledger users — Hijri-aware budget rules and Islamic finance workflows.",
+      "version": "0.1.0"
+    }
+  ]
+}
