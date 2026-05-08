@@ -1,0 +1,29 @@
+; ============================================================
+; sample-hijri-2027.journal — example output from /hijri-plan
+; Hijri events for Gregorian year 2027 (1448-1449 AH)
+; All amounts use USD as a placeholder — edit to your currency.
+; ============================================================
+
+; Pre-Ramadan sadaqah buildup (Jan 2027 — month before Ramadan starts Feb 7)
+~ monthly from 2027/01/01 to 2027/02/01  ; Pre-Ramadan sadaqah
+    Expenses:charity:ramadan-sadka           USD     150.00
+    Assets:bank:checking
+
+; Ramadan 2027 (starts Feb 7)
+~ monthly from 2027/02/01 to 2027/03/01  ; Ramadan 2027 (starts Feb 7)
+    Expenses:family:ramadan-food             USD     150.00
+    Expenses:charity:ramadan-sadka           USD     270.00
+    Assets:bank:checking
+
+; Eid al-Fitr 2027 (Mar 9) + tail of Ramadan
+~ monthly from 2027/03/01 to 2027/04/01  ; Eid al-Fitr 2027 (Mar 9) + tail of Ramadan
+    Expenses:charity:ramadan-sadka           USD      60.00  ; tail
+    Expenses:zakat:fitr                      USD      75.00  ; ~$15 per person × 5 family members
+    Expenses:gifts:eid                       USD      90.00
+    Assets:bank:checking
+
+; Eid al-Adha 2027 (May 16) — udhiyah / sacrifice
+~ monthly from 2027/05/01 to 2027/06/01  ; Eid al-Adha 2027 (May 16)
+    Expenses:gifts:eid                       USD      90.00
+    Expenses:family:od7ia                    USD     400.00  ; udhiyah / sacrifice — adjust to local livestock prices
+    Assets:bank:checking
