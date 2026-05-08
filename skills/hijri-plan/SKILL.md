@@ -41,6 +41,7 @@ The amounts shown in the templates below are **suggested defaults** — the user
    Use web search if available. Otherwise calculate: Hijri dates shift ~10–12 days earlier each Gregorian year. Reference table:
 
    ```text
+   Reference dates (verified as of 2026; re-verify before using):
    Ramadan:      2026 Feb 17 | 2027 Feb 7  | 2028 Jan 28 | 2029 Jan 17
    Eid al-Fitr:  2026 Mar 20 | 2027 Mar 9  | 2028 Feb 27 | 2029 Feb 15
    Eid al-Adha:  2026 May 27 | 2027 May 16 | 2028 May 5  | 2029 Apr 24
@@ -51,6 +52,8 @@ The amounts shown in the templates below are **suggested defaults** — the user
 2. **Generate periodic rules** following the patterns below. Account names are **suggested defaults** based on common conventions; rename to match the user's existing taxonomy (e.g., `Expenses:religious:sadaqah` instead of `Expenses:charity:ramadan-sadka`, or `Expenses:family:udhiyah` instead of `Expenses:family:od7ia`).
 
    > Note on `od7ia`: this is a transliteration of the Arabic *udhiyah* (the Eid al-Adha sacrifice). Some users prefer `udhiyah`, `qurbani`, or `sacrifice` in their account tree — pick whichever matches your existing accounts.
+
+   > Note on `sadka`: the account name `charity:ramadan-sadka` uses `sadka`, a common transliteration of the Arabic *sadaqah* (voluntary charity). Users are welcome to rename to `sadaqah`, `charity:ramadan-sadaqah`, or any other taxonomy that matches their existing accounts.
 
    **Pre-Ramadan sadaqah** (month before Ramadan starts):
    ```hledger
@@ -71,7 +74,7 @@ The amounts shown in the templates below are **suggested defaults** — the user
    ```hledger
    ~ monthly from YYYY/MM/01 to YYYY/MM+1/01  ; Ramadan YEAR (starts Mon DD) + pre-buildup
        Expenses:family:ramadan-food            USD     150.00
-       Expenses:charity:ramadan-sadka          USD     420.00  ; combined pre + during
+       Expenses:charity:ramadan-sadka          USD     420.00  ; combined pre + during only (NOT tail — tail $60 stays in the Eid al-Fitr rule)
        Assets:bank:<account>
    ```
 
@@ -88,7 +91,7 @@ The amounts shown in the templates below are **suggested defaults** — the user
    ```hledger
    ~ monthly from YYYY/MM/01 to YYYY/MM+1/01  ; Eid al-Adha YEAR (Mon DD)
        Expenses:gifts:eid                      USD      90.00
-       Expenses:family:od7ia                   USD   2,400.00  ; udhiyah / sacrifice — adjust to local livestock prices
+       Expenses:family:od7ia                   USD    400.00  ; udhiyah / sacrifice — adjust to local livestock prices
        Assets:bank:<account>
    ```
 
@@ -113,3 +116,4 @@ The amounts shown in the templates below are **suggested defaults** — the user
 - **Zakat al-fitr**: This is a per-person obligation paid before the Eid al-Fitr prayer, typically the cash equivalent of ~2.5 kg of staple food per household member. The placeholder `<currency> X per person × N family members` is meant to be replaced with the user's local rate.
 - **Account naming**: If the user already has `Expenses:religious:*` or `Expenses:islamic:*` trees, prefer those over inventing a new `charity:` subtree. Run `hledger accounts` first.
 - **Cross-skill reference**: If a `/new-year-budget` skill is available in the user's setup, this skill is typically invoked from there as part of yearly setup.
+- **Scope**: This skill covers Hijri-event-linked obligations (Ramadan sadaqah, Eid gifts, udhiyah, zakat al-fitr). It does NOT calculate zakat al-mal (the annual 2.5% wealth zakat), which is hawl-anniversary based — handle that separately.
