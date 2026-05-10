@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.1 — 2026-05-10
+
+### Documentation
+- README: add "Alternative: copy skills" section for users who can't install via plugin marketplace (e.g., Claude Code mobile app)
+
 ## v0.1.0 — 2026-05-05
 
 Initial public release.

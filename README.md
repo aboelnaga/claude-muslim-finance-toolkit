@@ -13,6 +13,17 @@ Claude Code skills for Muslim [hledger](https://hledger.org) users.
 /plugin install muslim-finance-toolkit
 ```
 
+## Alternative: copy skills (no plugin install)
+
+If you can't install plugins (e.g., on Claude Code mobile app, restricted environments) or prefer skills checked into your repo:
+
+```sh
+git clone https://github.com/aboelnaga/claude-muslim-finance-toolkit
+cp -r claude-muslim-finance-toolkit/skills/hijri-plan your-project/.claude/skills/
+```
+
+Skill will then be available as `/hijri-plan` directly (no plugin namespace prefix). Update by re-cloning and re-copying when you want a new version.
+
 ## 5-minute walkthrough
 
 ```sh
